@@ -9,6 +9,7 @@ SUM=$(($NUMBER1+$NUMBER2))
 
 echo "Sum of numbers is: ${SUM}"
 
+#Size=3, Max index=2
 LEADERS=("MODI" "TRUMP" "PUTIN")
 echo "All leaders are: ${LEADERS[@]}"
 echo "FIRST LEADER IS: ${LEADERS[0]}"
