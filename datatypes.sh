@@ -5,4 +5,4 @@ NUMBER2=200
 
 SUM=(($NUMBER1+$NUMBER2))
 
-echo "Sum of numbers is: ${SUM}"
+echo "Sum of numbers is: $SUM"
