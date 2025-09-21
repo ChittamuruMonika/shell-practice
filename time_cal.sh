@@ -2,4 +2,4 @@
 
 DATE=$(date)
 
-echo "Timestamp is : $DATE"
+echo "Timestamp is : $(DATE)"
