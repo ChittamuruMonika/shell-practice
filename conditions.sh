@@ -8,3 +8,4 @@ elif [ $Number -eq 10]
     echo "Given $Number is equal to 10"
 else
     echo "Given $Number is greater than 10"
+fi
