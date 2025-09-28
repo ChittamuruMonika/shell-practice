@@ -2,7 +2,7 @@
 
 Userid=$(id -u)
 
-if [ $((Userid)) eq 0 ]; then
+if [ $((Userid)) -eq 0 ]; then
     echo "User is the root user"
 else
     echo " pls Authenticate as root user"
