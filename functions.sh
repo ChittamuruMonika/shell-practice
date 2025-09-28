@@ -14,7 +14,7 @@ if [ $1 -ne 0 ]; then
     echo "Installing $2 failed"
     exit 1
 else 
-    echo "Successfully $2 mysql"
+    echo "Successfully $2 is installed"
 fi
 }
 
