@@ -19,23 +19,23 @@ fi
 
 Validate(){
     if [ $1 -ne 0 ]; then
-        echo -e "Installing $2...$R Failure $N"
+        echo -e "Installing $2...$R Failure $N" | tee -a $Log_File
     else
-        echo -e "Installing $2...$G Success $N"
+        echo -e "Installing $2...$G Success $N" | tee -a $Log_File
     fi
 }
 
-dnf list installed mysql &>Log_File
+dnf list installed mysql &>$Log_File
 if [ $? -ne 0 ]; then
-    dnf install mysql -y &>>Log_File
+    dnf install mysql -y &>>$Log_File
     Validate $? "mysql"
 else
     echo -e "mysql already installed...$Y Skipping $N"
 fi
 
-dnf list installed nginx &>>Log_File
+dnf list installed nginx &>>$Log_File
 if [ $? -ne 0 ]; then
-    dnf install nginx -y &>>Log_File
+    dnf install nginx -y &>>$Log_File
     Validate $? "nginx"
 else
     echo -e "nginx already installed...$Y Skipping $N"
