@@ -6,12 +6,12 @@ Y="\e[33m"
 N="\e[0m"
 
 Log_Folder="/var/log/shell-script"
-Script_Folder=$( echo $0 | cut -d "." -f1 )
-Log_File="$Log_Folder/$Script_Folder.log"
+Script_Name=$( echo $0 | cut -d "." -f1 )
+Log_File="$Log_Folder/$Script_Name.log"
 
 mkdir -p $Log_Folder
 
-if [ $((id -u)) -ne 0 ]; then
+if [ ($(id -u)) -ne 0 ]; then
     echo -e "$R Error: please run the script with root privilege $N"
     exit 1
 fi
@@ -25,7 +25,7 @@ Validate(){
     fi
 }
 
-dnf list installed mysql &>$Log_File
+dnf list installed mysql &>>$Log_File
 if [ $? -ne 0 ]; then
     dnf install mysql -y &>>$Log_File
     Validate $? "mysql"
