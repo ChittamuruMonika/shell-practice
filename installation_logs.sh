@@ -11,7 +11,7 @@ Log_File="$Log_Folder/$Script_Name.log"
 
 mkdir -p $Log_Folder
 
-if [ ($(id -u)) -ne 0 ]; then
+if [ $((id -u)) -ne 0 ]; then
     echo -e "$R Error: please run the script with root privilege $N"
     exit 1
 fi
