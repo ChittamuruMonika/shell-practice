@@ -18,7 +18,7 @@ fi
 
 
 Validate(){
-    if ( $1 -ne 0); then
+    if ( $1 -ne 0 ); then
         echo -e "Installing $2...$R Failure $N"
     else
         echo -e "Installing $2...$G Success $N"
