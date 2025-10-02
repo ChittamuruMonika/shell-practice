@@ -5,7 +5,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-Log_Folder="/var/logs/shell-script"
+Log_Folder="/var/log/shell-script"
 Script_Folder=$( echo $0 | cut -d "." -f1 )
 Log_File="$Log_Folder/$Script_Folder.log"
 
