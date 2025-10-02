@@ -12,7 +12,7 @@ Log_File="$Log_Folder/$Script_Folder.log"
 mkdir -p $Log_Folder
 
 if [ $((id -u)) -ne 0 ]; then
-    echo "$R Error: please run the script with root privilege $N"
+    echo -e "$R Error: please run the script with root privilege $N"
     exit 1
 fi
 
@@ -25,17 +25,17 @@ Validate(){
     fi
 }
 
-dnf list installed mysql
+dnf list installed mysql &>Log_File
 if [ $? -ne 0 ]; then
-    dnf install mysql -y
+    dnf install mysql -y &>>Log_File
     Validate $? "mysql"
 else
     echo -e "mysql already installed...$Y Skipping $N"
 fi
 
-dnf list installed nginx
+dnf list installed nginx &>>Log_File
 if [ $? -ne 0 ]; then
-    dnf install nginx -y
+    dnf install nginx -y &>>Log_File
     Validate $? "nginx"
 else
     echo -e "nginx already installed...$Y Skipping $N"
