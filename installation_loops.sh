@@ -3,7 +3,7 @@
 USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
-Y="\e[32m"
+Y="\e[33m"
 N="\e[0m"
 
 Log_Folder="/var/log/shell-script" 
@@ -32,6 +32,6 @@ do
         dnf install $package -y &>>$Log_File
         Validate $? "$package"
     else
-        echo -e "$package already installed...$Y Skipping" | tee -a $Log_File
+        echo -e "$package already installed...$YSkipping" | tee -a $Log_File
     fi
 done
