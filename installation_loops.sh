@@ -30,7 +30,7 @@ do
     dnf list installed $package &>>$Log_File
     if [ $? -ne 0 ]; then
         dnf install $package -y &>>$Log_File
-        Validate $? $package
+        Validate $? "$package"
     else
         echo -e "$package already installed...$Y Skipping" | tee -a $Log_File
     fi
