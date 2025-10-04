@@ -28,7 +28,7 @@ Validate() {
 for package in range $@
 do 
     dnf list installed $package &>>$Log_File
-    if ( $1 -ne 0 ); then
+    if ( $? -ne 0 ); then
         dnf install $package -y &>>$Log_File
         Validate $? "$package"
     else
