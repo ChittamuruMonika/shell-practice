@@ -27,11 +27,11 @@ Validate() {
 
 for package in range $@
 do 
-    dnf list installed $package
+    dnf list installed $package &>>$Log_File
     if ($1 -ne 0); then
-        dnf install $package -y
+        dnf install $package -y &>>$Log_File
         Validate $? "$package"
     else
-        echo -e "$package already installed...$Y Skipping"
+        echo -e "$package already installed...$Y Skipping" | tee -a $Log_File
     fi
 done
